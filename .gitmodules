@@ -1,0 +1,33 @@
+[submodule "vendor/backbone"]
+	path = vendor/backbone
+	url = git://github.com/documentcloud/backbone.git
+[submodule "vendor/easey"]
+	path = vendor/easey
+	url = git://github.com/mapbox/easey.git
+[submodule "vendor/js-iso8601"]
+	path = vendor/js-iso8601
+	url = git://github.com/csnover/js-iso8601.git
+[submodule "vendor/handlebars"]
+	path = vendor/handlebars
+	url = git://github.com/wycats/handlebars.js.git
+[submodule "vendor/modestmaps-js"]
+	path = vendor/modestmaps-js
+	url = git://github.com/stamen/modestmaps-js.git
+[submodule "vendor/underscore"]
+	path = vendor/underscore
+	url = git://github.com/documentcloud/underscore.git
+[submodule "vendor/wax"]
+	path = vendor/wax
+	url = git://github.com/mapbox/wax.git
+[submodule "vendor/requirejs"]
+	path = vendor/requirejs
+	url = git://github.com/jrburke/requirejs.git
+[submodule "vendor/timezone-js"]
+	path = vendor/timezone-js
+	url = git://github.com/mikemorris/timezone-js.git
+[submodule "vendor/mmg-backbone"]
+	path = vendor/mmg-backbone
+	url = git://github.com/mikemorris/mmg-backbone.git
+[submodule "vendor/csv2geojson"]
+	path = vendor/csv2geojson
+	url = git://github.com/mikemorris/csv2geojson.git

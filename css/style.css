@@ -1,0 +1,303 @@
+/* Global */
+html, body {height:100%; background-color:#181818; color:#fff; font-family:Helvetica, Arial, sans-serif; font-size:26px;}
+body {overflow-x:auto; overflow-y:scroll;}
+.clear {clear:both;}
+.clearfix:after {clear: both; content: "."; display:block; font-size:0; visibility:hidden;}
+.layout {max-width:960px; margin:0 auto;}
+.hidden {display:none;}
+
+.banner {
+  width:100%;
+  padding:8px 0;
+  position:absolute;
+  top:0;
+  z-index:100;
+  background-color:#990100;
+  color:#444;
+  text-align:center;
+}
+
+#map {
+  width:100%;
+  height:600px;
+  background-color:#8C8984;
+}
+
+#infographic {
+  width:100%;
+  padding:20px;
+  position:relative;
+  background-color:#fff;
+  box-shadow:0 0 10px #444;
+}
+
+h2, h3 {
+  font-family:"Droid Sans", Helvetica, Arial, "sans-serif";
+  font-weight:400;
+  color:#444;
+}
+
+#infographic h2 {
+  float:left;
+}
+
+#year {
+  float:right;
+}
+
+#sidebar {
+  display:none;
+}
+
+a.footer {
+  padding:10px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  display:block;
+  background-color:rgba(0,0,0,0.5);
+  color:#fff;
+  font-size:24px;
+  text-align:center;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+
+.schedule, .day, .feature {
+  width:100%;
+  position:absolute;
+  top:100px;
+  bottom:0;
+  z-index:9999;
+  display:none;
+  background-color:#000;
+  color:#fff;
+  font-size:24px;
+  overflow-y:scroll;
+}
+
+.schedule, .day {
+  left:0;
+}
+
+.feature {
+  right:0;
+}
+
+.schedule .wrapper {
+  margin:10px 25px;
+}
+
+.back {
+  position:relative;
+  background-color:#333;
+  font-size:24px;
+  text-transform:uppercase;
+  text-align:right;
+}
+
+.back a {
+  display:block;
+  color:#999;
+  text-decoration:none;
+}
+
+.back a .close {
+  display:inline-block;
+  margin-left:17px;
+  padding:17px;
+  background-color:#191919;
+}
+
+.feature img {
+  width:100%;
+  display:block;
+}
+
+.schedule h1, .day h1 {
+  font-size:32px;
+  text-transform:uppercase;
+}
+
+.day h1 {
+  padding:10px 25px 0;
+}
+
+.feature h1 {
+  font-size:30px;
+  font-weight:normal;
+  text-transform:uppercase;
+}
+
+.schedule ul {
+  margin:40px 0;
+  border-top:1px solid #404040;
+}
+
+.schedule ul li {
+  padding:30px 10px;
+  border-bottom:1px solid #404040;
+}
+
+.day ul.events {
+  margin:40px 0;
+  border-top:4px solid #c80011;
+}
+
+.day ul.events > li {
+  padding:12px 25px 40px;
+  background-color:#300;
+  border-bottom:1px solid #000;
+  font-size:23px;
+  line-height:1.2em;
+}
+
+.day ul li a {
+  color:#990000;
+}
+
+.day ul li h2 {
+  margin-bottom:2px;
+  color:#cc0000;
+  font-size:30px;
+}
+
+.day ul li h3 {
+  margin-bottom:10px;
+  padding-bottom:12px;
+  border-bottom:1px solid #4d3333;
+  font-size:20px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+.feature ul {
+  font-size:23px;
+}
+
+.feature .wrapper > ul > li {
+  padding:20px;
+}
+
+.feature ul li.name {
+  background-color:#600;
+  border-top:3px solid #c80011;
+}
+
+.feature ul li.stats {
+  background-color:#300;
+  letter-spacing:-1px;
+}
+
+.feature ul li.stats ul {
+  width:220px;
+  margin-right:20px;
+  float:left;
+}
+
+.feature ul li.stats ul li .label {
+  font-weight:bold;
+}
+
+.schedule ul.days li a {
+  color:#fff;
+  font-size:30px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.schedule ul.days li a .expand {
+  margin-right:30px;
+  color:#404040;
+  font-size:36px;
+  font-weight:normal;
+}
+
+.schedule ul.museums {
+  padding:10px;
+  color:#fff;
+  font-size:18px;
+}
+
+.mmg-expand {
+  max-width:28px;
+  max-height:28px;
+  overflow:hidden;
+}
+
+.mmg-expand .container {
+  width:228px;
+  position:relative;
+  z-index:9999;
+}
+
+.mmg-expand a.plus {
+  width:28px;
+  height:28px;
+  float:left;
+  background-color:#000;
+  color:#fff;
+  font-size:22px;
+  line-height:24px;
+  text-align:center;
+  text-decoration:none;
+}
+
+.mmg-expand p {
+  max-width:180px;
+  padding:10px;
+  float:left;
+  background-color:#990100;
+  color:#fff;
+  font-size:24px;
+}
+
+.wax-tooltip {
+  width:300px;
+  padding:20px;
+  z-index:999999;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color:#333;
+  color:#fff;
+  color:#fea;
+  -webkit-user-select:auto;
+  opacity:1;
+  -webkit-transition:opacity 150ms;
+  -moz-transition:opacity 150ms;
+}
+
+.wax-fade {
+  opacity:0;
+}
+
+.leaflet-popup-content {
+	font: 12px/1.4 "Asap", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+ul.layers li, ul.museums li {
+  margin-bottom:10px;
+}
+
+ul.layers li a, ul.museums li a {
+  color:#fea;
+  line-height:normal;
+  text-decoration:none;
+}
+
+ul.layers li a.active, ul.museums li a.active {
+  color:#74b6e6;
+}
+
+@media (min-width: 992px) {
+  a.footer {
+    display:none;
+  }
+
+  .schedule, .day, .feature {
+    width:480px;
+    display:block;
+  }
+}

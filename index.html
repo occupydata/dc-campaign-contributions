@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DC Campaign Finance</title>
+    <meta name="viewport" content="width=640, maximum-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/wax/theme/controls.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+    <div id="map">
+    </div>
+
+    <div id="infographic">
+      <div class="layout clearfix">
+        <div class="clearfix">
+          <h2>DC Campaign Finance</h2>
+          <!-- addd blank/all option for each filter -->
+          <select id="year"></select>
+          <!-- comittee -->
+          <!-- ward -->
+        </div>
+        <h3>Puppet Corporations Circumventing Contribution Limits</h3>
+
+
+        <div id="BarChartID165c317a1c751"
+          style="width: 600px; height: 500px;">
+        </div>
+
+        <div id="BarChartID165c33405968f"
+          style="width: 600px; height: 500px;">
+        </div>
+
+        <div id="BarChartID165c3473158db"
+          style="width: 600px; height: 500px;">
+        </div>
+
+        <div id="LineChartID165c378c0b660"
+          style="width: 600px; height: 500px;">
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="footer">Schedule</a>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+
+    <!-- Google Charts API -->
+    <script src="http://www.google.com/jsapi"></script>
+
+    <!-- Handlebars -->
+    <script src="vendor/handlebars/dist/handlebars.runtime.js"></script>
+    <script src="templates/feature/details.js"></script>
+    <script src="templates/feature/listitem.js"></script>
+    <script src="templates/feature/marker.js"></script>
+
+    <!-- Polyfills -->
+    <script src="vendor/js-iso8601/iso8601.min.js"></script>
+    <script src="vendor/timezone-js/build/timezone.js"></script>
+
+    <!-- MapBox Libraries -->
+    <script src="vendor/modestmaps-js/modestmaps.min.js"></script>
+    <script src="vendor/easey/src/easey.js"></script>
+    <script src="vendor/easey/src/easey.handlers.js"></script>
+    <script src="vendor/mmg-backbone/src/mmg.js"></script>
+    <script src="vendor/wax/dist/wax.mm.min.js"></script>
+
+    <!-- Data -->
+    <script src="data/contrib.js"></script>
+    <script src="js/schedule.js"></script>
+
+    <!-- TODO: Modularize these using require.js -->
+    <script src="js/models/feature.js"></script>
+    <script src="js/collections/feature.js"></script>
+    <script src="js/views/feature/details.js"></script>
+    <script src="js/views/feature/list.js"></script>
+    <script src="js/views/feature/listitem.js"></script>
+    <script src="js/views/feature/marker.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+  </body>
+</html>
