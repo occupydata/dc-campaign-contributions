@@ -7,9 +7,6 @@
 [submodule "vendor/js-iso8601"]
 	path = vendor/js-iso8601
 	url = git://github.com/csnover/js-iso8601.git
-[submodule "vendor/handlebars"]
-	path = vendor/handlebars
-	url = git://github.com/wycats/handlebars.js.git
 [submodule "vendor/modestmaps-js"]
 	path = vendor/modestmaps-js
 	url = git://github.com/stamen/modestmaps-js.git
@@ -28,3 +25,6 @@
 [submodule "vendor/mmg"]
 	path = vendor/mmg
 	url = git://github.com/mapbox/mmg.git
+[submodule "vendor/handlebars"]
+	path = vendor/handlebars
+	url = git://github.com/mikemorris/handlebars.js.git
