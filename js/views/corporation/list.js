@@ -1,4 +1,4 @@
-FeatureList = Backbone.View.extend({
+ContributionList = Backbone.View.extend({
   tagName: 'ul',
   
   initialize: function() {
@@ -6,7 +6,7 @@ FeatureList = Backbone.View.extend({
   },
   
   renderItem: function(model) {
-    var featureListItem = new FeatureListItem({model: model, dispatch: dispatch});
+    var featureListItem = new ContributionListItem({model: model, dispatch: dispatch});
     $(this.el).append(featureListItem.render().el);
   },
   

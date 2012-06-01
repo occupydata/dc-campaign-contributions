@@ -1,4 +1,4 @@
-var FeatureListItem = Backbone.View.extend({
+var ContributionListItem = Backbone.View.extend({
   events: {
     'click a': function() {
       dispatch.trigger(this.model.cid + ':listitem:click');

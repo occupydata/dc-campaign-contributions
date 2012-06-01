@@ -1,5 +1,5 @@
 /* Global */
-html, body {height:100%; background-color:#181818; color:#fff; font-family:Helvetica, Arial, sans-serif; font-size:26px;}
+html, body {height:100%; background-color:#181818; color:#444; font-family:Helvetica, Arial, sans-serif;}
 body {overflow-x:auto; overflow-y:scroll;}
 .clear {clear:both;}
 .clearfix:after {clear: both; content: "."; display:block; font-size:0; visibility:hidden;}
@@ -17,31 +17,75 @@ body {overflow-x:auto; overflow-y:scroll;}
   text-align:center;
 }
 
+header {
+  padding:10px;
+  position:relative;
+  z-index:5;
+  background-color:#fff;
+  box-shadow:0 0 10px #444;
+}
+
 #map {
   width:100%;
-  height:600px;
+  height:500px;
   background-color:#8C8984;
 }
 
 #infographic {
-  width:100%;
   padding:20px;
   position:relative;
   background-color:#fff;
   box-shadow:0 0 10px #444;
 }
 
-h2, h3 {
+p {
+  font-size:14px;
+}
+
+.filter {
+  margin-bottom:20px;
+}
+
+h2 {
   font-family:"Droid Sans", Helvetica, Arial, "sans-serif";
+  font-size:24px;
   font-weight:400;
   color:#444;
+}
+
+/*
+h3 {
+  color:#444;
+  float:left;
+  font-family:"Droid Sans", Helvetica, Arial, "sans-serif";
+  font-size:16px;
+  font-weight:400;
+  line-height:20px;
+}
+*/
+
+.chart {
+  height:480px;
+}
+
+.social {
+  float:right;
+}
+
+.social .fb-like, .social .twitter-share-button, .social iframe {
+  float:left;
+}
+
+.social .fb_iframe_widget span {
+  display:inline;
+  vertical-align:baseline;
 }
 
 #infographic h2 {
   float:left;
 }
 
-#year {
+select {
   float:right;
 }
 
@@ -221,36 +265,37 @@ a.footer {
 }
 
 .mmg-expand {
-  max-width:28px;
-  max-height:28px;
-  overflow:hidden;
-}
-
-.mmg-expand .container {
-  width:228px;
-  position:relative;
-  z-index:9999;
-}
-
-.mmg-expand a.plus {
-  width:28px;
-  height:28px;
-  float:left;
-  background-color:#000;
+  width:20px;
+  height:20px;
+  position:absolute;
   color:#fff;
-  font-size:22px;
-  line-height:24px;
-  text-align:center;
-  text-decoration:none;
+  border:2px solid #444;
+  border-radius:12px;
 }
 
-.mmg-expand p {
-  max-width:180px;
-  padding:10px;
-  float:left;
-  background-color:#990100;
-  color:#fff;
-  font-size:24px;
+.mmg-expand.one {
+  background-color:rgba(217, 240, 163, 0.9);
+  z-index:1;
+}
+
+.mmg-expand.two {
+  background-color:rgba(173, 221, 142, 0.9);
+  z-index:2;
+}
+
+.mmg-expand.three {
+  background-color:rgba(120, 198, 121, 0.9);
+  z-index:3;
+}
+
+.mmg-expand.four {
+  background-color:rgba(49, 163, 84, 0.9);
+  z-index:4;
+}
+
+.mmg-expand.five {
+  background-color:rgba(0, 104, 55, 0.9);
+  z-index:5;
 }
 
 .wax-tooltip {

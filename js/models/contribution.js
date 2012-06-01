@@ -1,4 +1,4 @@
-var Feature = Backbone.Model.extend({
+var Contribution = Backbone.Model.extend({
   initialize: function(args) {
     if(!args || !args.type || !args.geometry.type || !args.geometry.coordinates) {
       throw 'InvalidConstructArgs';

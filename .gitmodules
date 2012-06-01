@@ -22,12 +22,9 @@
 [submodule "vendor/requirejs"]
 	path = vendor/requirejs
 	url = git://github.com/jrburke/requirejs.git
-[submodule "vendor/timezone-js"]
-	path = vendor/timezone-js
-	url = git://github.com/mikemorris/timezone-js.git
-[submodule "vendor/mmg-backbone"]
-	path = vendor/mmg-backbone
-	url = git://github.com/mikemorris/mmg-backbone.git
 [submodule "vendor/csv2geojson"]
 	path = vendor/csv2geojson
 	url = git://github.com/mikemorris/csv2geojson.git
+[submodule "vendor/mmg"]
+	path = vendor/mmg
+	url = git://github.com/mapbox/mmg.git

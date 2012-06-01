@@ -7,20 +7,101 @@ $(window).load(function() {
   var url = 'http://api.tiles.mapbox.com/v3/mapbox.mapbox-light.jsonp';
 
   // Init Backbone collection
-  var collection = new FeatureCollection();
+  var corporations = new CorporationCollection();
+
+  // Init select arrays
+  var years = [];
+  var wards = [];
+  var campaigns = [];
   
-  // Define a GeoJSON data layer, bind onclick to setLocation()
-  mmg().factory(function(x) {
-    var feature = new Feature(x);
-    feature.set('marker', new FeatureMarker({ model: feature, dispatch: dispatch }));
+  // Define GeoJSON data layer
+  var geojsonlayer = mmg().factory(function(x) {
+    var contribution = new Contribution(x);
 
-    var details;
-    feature.set('details', new FeatureDetails({ model: feature, dispatch: dispatch }));
-    details = feature.get('details').render();
-    details.$el.appendTo('#sidebar').css('right', -details.$el.width());
+    var year = contribution.get('properties').year;
+    if(_.indexOf(years, year) < 0 && year != undefined)
+      years.push(year);
 
-    collection.push(feature);
+    var ward = contribution.get('properties').ward;
+    if(_.indexOf(wards, ward) < 0 && ward != undefined)
+      wards.push(ward);
+
+    var campaign = contribution.get('properties').campaign;
+    if(_.indexOf(campaigns, campaign) < 0 && campaign != undefined)
+      campaigns.push(campaign);
+
+    var address = contribution.get('properties').address;
+    var index = _.indexOf(corporations.pluck('address'), address);
+
+    var corporation, collection;
+
+    if(index < 0) {
+      try {
+        corporation = new Corporation({
+          address: address,
+          coordinates: contribution.get('geometry').coordinates
+        });
+
+        corporation.set('marker', new CorporationMarker({ model: corporation, dispatch: dispatch }));
+        corporations.add(corporation);
+
+        return corporation.get('marker').render().el; 
+      } catch(err) {}
+    } else {
+      corporation = corporations.at(index);
+
+      collection = corporation.get('contributions');
+      collection.add(contribution);
+    }
   }).features(contrib.features);
+
+  // Determine maximum campaign contributions per corporation
+  var max = 0;
+
+  corporations.each(function(corporation, index) {
+    var corporationMax = 0;
+
+    _.each(corporation.get('contributions').groupBy(function(contribution, index) {
+      return contribution.get('properties').campaign;
+    }), function(campaignContributions) {
+      var length = campaignContributions.length;
+
+      if(length > corporationMax) { corporationMax = length };
+      if(length > max) { max = length };
+    });
+
+    corporation.set('max', corporationMax);
+  });
+
+  // Set corporation quantiles
+  corporations.each(function(corporation, index) {
+    var quantile = Math.ceil((corporation.get('max') / max) * 5);
+
+    switch(quantile) {
+      case 1:
+        corporation.set('quantile', 'one');
+        corporation.get('marker').$el.addClass('one');
+        break;
+      case 2:
+        corporation.set('quantile', 'two');
+        corporation.get('marker').$el.addClass('two');
+        break;
+      case 3:
+        corporation.set('quantile', 'three');
+        corporation.get('marker').$el.addClass('three');
+        break;
+      case 4:
+        corporation.set('quantile', 'four');
+        corporation.get('marker').$el.addClass('four');
+        break;
+      case 5:
+        corporation.set('quantile', 'five');
+        corporation.get('marker').$el.addClass('five');
+        break;
+      default:
+        break;
+    }
+  });
 
   wax.tilejson(url, function(tilejson) {
     // Init map using modestmaps
@@ -28,14 +109,13 @@ $(window).load(function() {
       new easey.DragHandler(),
       new easey.TouchHandler(),
       new easey.DoubleClickHandler()
-      //new easey.MouseWheelHandler()
     ]);
 
     // Set zoom to street level, centered on Washington, DC
     m.setCenterZoom({ lat: 38.8903694152832, lon: -77.0319595336914 }, 13);
 
     // Set min/max zoom levels
-    //m.setZoomRange(9, 16);
+    m.setZoomRange(4, 17);
 
     // Add bandwidth detection
     var bw = wax.mm.bwdetect(m);
@@ -49,110 +129,49 @@ $(window).load(function() {
     // Add easey integration
     ea = easey().map(m);
 
-    // Add zoomed event listener, hide GeoJSON layer further out than zoom level 13
-    /*
-    m.addCallback('zoomed', function(m) {
-      if(m.getZoom() >= 13) {
-        dispatch.trigger('marker:show');
-      } else {
-        dispatch.trigger('marker:hide');
-      }
-    });    
-    */
+    // Add GeoJSON layer to map
+    m.addLayer(geojsonlayer);
 
     // Add zoom controls to top left corner
     wax.mm.zoomer(m).appendTo(m.parent);
-
-    // Add select event binding and change after map init
-    var select = document.getElementById('year');
-
-    var years = _.uniq(
-      _.reject(collection.map(function(feature) {
-          return feature.get('properties').date.getUTCFullYear();
-        }), function(year) {
-          return _.isNaN(year);
-        })
-      ).sort(function(a,b) {
-        return b-a;
-      });
-
-    for(index in years) {
-      select.options[select.options.length] = new Option(years[index], years[index]);
-    }
-
-    $(select).change(function() {
-      var year = parseInt($(select).find('option:selected').attr('value'));
-
-      var geojsonlayer = mmg().factory(function(feature) {
-        if(feature.get('properties').date.getUTCFullYear() === year) {
-          return feature.get('marker').render().el;
-        }
-      }).features(_.toArray(collection));
-
-      if(m.getLayerAt(1))
-        m.setLayerAt(1, geojsonlayer);
-      else
-        m.addLayer(geojsonlayer).draw();
-    }).attr('value', 2011).change();
   });
 
   $(document).ready(function() {
-    // color code points by quantile, amount at same address
-    // tooltip to show all contributions from same address in filter set
-    
-    // Split collection into air/land/sea categories
-    var categories = collection.groupBy(function(feature) {
-      return feature.get('properties').category;
-    });
+    $('#year, #ward, #campaign').change(function() {
+      var year = $('#year').find('option:selected').attr('value');
+      var ward = $('#ward').find('option:selected').attr('value');
+      var campaign = $('#campaign').find('option:selected').attr('value');
 
-    // Append each category collection view to the interface
-    _.each(categories, function(category, name) { 
-      var ul = new FeatureList({collection: new FeatureCollection(category)});
+      corporations.each(function(corporation, index) {
+        var cid = corporation.cid;
+        dispatch.trigger(cid + ':marker:hide');
 
-      var li = $(document.createElement('li'))
-        .append($(document.createElement('h3')).html(name))
-        .append(ul.render().el)
-        .appendTo('.schedule .wrapper ul.museums');
-    });
-
-    // Filter schedule by date
-    /*
-    collection.filter(function(feature) {
-      var dates = _.toArray(_.map(_.pluck(feature.get('properties').date, 'start'), function(date) {
-        return new Date(Date.parse(date));
-      }));
-      
-      return _.filter(dates, function(date) {
-        return _.isDate(date);
+        corporation.get('contributions').each(function(contribution, index) {
+          if(contribution.get('properties').year == year || year == 'all')
+            if(contribution.get('properties').ward == ward || ward == 'all')
+              if(contribution.get('properties').campaign == campaign || campaign == 'all')
+                dispatch.trigger(cid + ':marker:show');
+        });
       });
     });
 
-    for(var i = _.min(schedule); i < _.max(schedule); i + 86400000) {
-      _.each(schedule, function(date) {
-        console.log(date.getTime());
-
-        if(date.getTime() === i) {
-          console.log(date);
-        }
-      });
+    // Populate select dropdowns
+    var year = document.getElementById('year');
+    for(index in years.sort(function(a,b){return b-a})) {
+      var value = years[index];
+      year.options[year.options.length] = new Option(value, value);
     }
-    */
 
-    $('a.footer').click(function(e) {
-      e.preventDefault();
-      $('.schedule').show().animate({'left': 0});
-    });
+    var ward = document.getElementById('ward');
+    for(index in wards.sort()) {
+      var value = wards[index];
+      ward.options[ward.options.length] = new Option(value, value);
+    }
 
-    $('.schedule .back a, .day .back a').live('click', function(e) {
-      e.preventDefault();
-      var panel = $(this).parent().parent();
-      panel.animate({'left': -panel.width()});
-    });
-
-    $('.schedule ul.days li a').click(function(e) {
-      e.preventDefault();
-      var html = ich.day(schedule);
-      html.appendTo('#sidebar').css('left', -html.width()).show().animate({'left': 0});
-    });
+    var campaign = document.getElementById('campaign');
+    for(index in campaigns.sort()) {
+      var value = campaigns[index];
+      campaign.options[campaign.options.length] = new Option(value, value);
+    }
   });
 });

@@ -1,13 +1,13 @@
-var FeatureMarker = Backbone.View.extend({
+var CorporationMarker = Backbone.View.extend({
   initialize: function (args) {
     dispatch.on(this.model.cid + ':listitem:click', this.click, this);
     dispatch.on(this.model.cid + ':marker:toggle', this.toggle, this);
-    dispatch.on('marker:show', this.show, this);
-    dispatch.on('marker:hide', this.hide, this);
+    dispatch.on(this.model.cid + ':marker:show', this.show, this);
+    dispatch.on(this.model.cid + ':marker:hide', this.hide, this);
   },
 
   events: {
-    'click a.plus': 'click'
+    'click': 'click'
   },
 
   render: function() {
@@ -26,23 +26,28 @@ var FeatureMarker = Backbone.View.extend({
     }
 
     var center = m.locationCoordinate({ lat: m.getCenter().lat, lon: m.getCenter().lon});
-    var point = m.locationCoordinate({ lat: this.model.get('geometry').coordinates[1], lon: this.model.get('geometry').coordinates[0]});
+    var point = m.locationCoordinate({ lat: this.model.get('coordinates')[1], lon: this.model.get('coordinates')[0]});
+    var marker = this;
 
     if(!_.isEqual(center, point)) {
-      this.ease(this, center, point, 500);
+      this.ease(this, center, point, 500, function() {
+        dispatch.trigger('marker:collapse');
+        dispatch.trigger(marker.model.cid + ':marker:toggle');
+
+        console.log(marker.model.get('contributions'));
+      });
     } else {
       dispatch.trigger('marker:collapse');
       dispatch.trigger(this.model.cid + ':marker:toggle');
+
+      console.log(this.model.get('contributions'));
     }
   },
 
-  ease: function(marker, center, point, time) {
+  ease: function(marker, center, point, time, callback) {
     ea.from(center.zoomTo(m.getZoom()))
       .to(point.zoomTo(this.getZoom()))
-      .run(time, function() {
-        dispatch.trigger('marker:collapse');
-        dispatch.trigger(marker.model.cid + ':marker:toggle');
-      });
+      .run(time, callback);
   },
 
   getDate: function() {
