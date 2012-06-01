@@ -31,6 +31,20 @@ header {
   background-color:#8C8984;
 }
 
+#contributions table {
+  margin:20px 0;
+  font-size:14px;
+}
+
+#contributions table th {
+  font-weight:bold;
+}
+
+#contributions table td {
+  padding:5px;
+  border:2px solid #444;
+}
+
 #infographic {
   padding:20px;
   position:relative;

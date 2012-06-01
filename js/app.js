@@ -43,6 +43,8 @@ $(window).load(function() {
         });
 
         corporation.set('marker', new CorporationMarker({ model: corporation, dispatch: dispatch }));
+        corporation.set('table', new CorporationTable({ model: corporation, dispatch: dispatch }));
+
         corporations.add(corporation);
 
         return corporation.get('marker').render().el; 

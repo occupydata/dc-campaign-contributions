@@ -27,20 +27,15 @@ var CorporationMarker = Backbone.View.extend({
 
     var center = m.locationCoordinate({ lat: m.getCenter().lat, lon: m.getCenter().lon});
     var point = m.locationCoordinate({ lat: this.model.get('coordinates')[1], lon: this.model.get('coordinates')[0]});
+
     var marker = this;
 
     if(!_.isEqual(center, point)) {
       this.ease(this, center, point, 500, function() {
-        dispatch.trigger('marker:collapse');
-        dispatch.trigger(marker.model.cid + ':marker:toggle');
-
-        console.log(marker.model.get('contributions'));
+        dispatch.trigger(marker.model.cid + ':table:html');
       });
     } else {
-      dispatch.trigger('marker:collapse');
-      dispatch.trigger(this.model.cid + ':marker:toggle');
-
-      console.log(this.model.get('contributions'));
+      dispatch.trigger(this.model.cid + ':table:html');
     }
   },
 
