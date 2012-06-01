@@ -1,5 +1,5 @@
 /* Global */
-html, body {height:100%; background-color:#181818; color:#444; font-family:Helvetica, Arial, sans-serif;}
+html, body {height:100%; color:#444; font-family:Helvetica, Arial, sans-serif;}
 body {overflow-x:auto; overflow-y:scroll;}
 .clear {clear:both;}
 .clearfix:after {clear: both; content: "."; display:block; font-size:0; visibility:hidden;}
@@ -22,7 +22,7 @@ header {
   position:relative;
   z-index:5;
   background-color:#fff;
-  box-shadow:0 0 10px #444;
+  box-shadow:0 10px 10px -10px #444;
 }
 
 #map {
@@ -31,7 +31,52 @@ header {
   background-color:#8C8984;
 }
 
+#map a.zoomin {
+  left:30px;
+}
+
+#map a.zoomout {
+  left:60px;
+}
+
+.container {
+  position:relative;
+}
+
+.container .border {
+  width:20px;
+  height:100%;
+  background-color:#fff;
+  box-shadow:0 0 10px #444;
+  position:absolute;
+  top:0;
+}
+
+.container .border.left {
+  left:0;
+}
+
+.container .border.right {
+  right:0;
+}
+
+#infographic {
+  padding:20px;
+  position:relative;
+  background-color:#fff;
+  box-shadow:0 -10px 10px -10px #444;
+}
+
+#contributions {
+  -webkit-transition:height 1s;
+  -moz-transition:height 1s;
+  -ms-transition:height 1s;
+  -o-transition:height 1s;
+  transition:height 1s;
+}
+
 #contributions table {
+  width:100%;
   margin:20px 0;
   font-size:14px;
 }
@@ -43,13 +88,6 @@ header {
 #contributions table td {
   padding:5px;
   border:2px solid #444;
-}
-
-#infographic {
-  padding:20px;
-  position:relative;
-  background-color:#fff;
-  box-shadow:0 0 10px #444;
 }
 
 p {
@@ -66,17 +104,6 @@ h2 {
   font-weight:400;
   color:#444;
 }
-
-/*
-h3 {
-  color:#444;
-  float:left;
-  font-family:"Droid Sans", Helvetica, Arial, "sans-serif";
-  font-size:16px;
-  font-weight:400;
-  line-height:20px;
-}
-*/
 
 .chart {
   height:480px;
@@ -288,27 +315,27 @@ a.footer {
 }
 
 .mmg-expand.one {
-  background-color:rgba(217, 240, 163, 0.9);
+  background-color:#FED976;
   z-index:1;
 }
 
 .mmg-expand.two {
-  background-color:rgba(173, 221, 142, 0.9);
+  background-color:#FD8D3C;
   z-index:2;
 }
 
 .mmg-expand.three {
-  background-color:rgba(120, 198, 121, 0.9);
+  background-color:#F03B20;
   z-index:3;
 }
 
 .mmg-expand.four {
-  background-color:rgba(49, 163, 84, 0.9);
+  background-color:#DE2D26;
   z-index:4;
 }
 
 .mmg-expand.five {
-  background-color:rgba(0, 104, 55, 0.9);
+  background-color:#BD0026;
   z-index:5;
 }
 

@@ -28,6 +28,6 @@ CorporationTable = Backbone.View.extend({
   },
 
   html: function() {
-    $('#contributions').html(this.model.get('table').render().el);
+    $('#contributions').html(this.model.get('table'));
   }
 });

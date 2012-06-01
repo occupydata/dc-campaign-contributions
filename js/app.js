@@ -73,6 +73,7 @@ $(window).load(function() {
     });
 
     corporation.set('max', corporationMax);
+    corporation.set('table', corporation.get('table').render().el);
   });
 
   // Set corporation quantiles
