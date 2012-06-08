@@ -2,12 +2,14 @@ var CorporationMarker = Backbone.View.extend({
   initialize: function (args) {
     dispatch.on(this.model.cid + ':listitem:click', this.click, this);
     dispatch.on(this.model.cid + ':marker:toggle', this.toggle, this);
+    dispatch.on('marker:collapse', this.collapse, this);
     dispatch.on(this.model.cid + ':marker:show', this.show, this);
     dispatch.on(this.model.cid + ':marker:hide', this.hide, this);
   },
 
   events: {
-    'click': 'click'
+    'click': 'click',
+    'touchend': 'click'
   },
 
   render: function() {
@@ -32,9 +34,13 @@ var CorporationMarker = Backbone.View.extend({
 
     if(!_.isEqual(center, point)) {
       this.ease(this, center, point, 500, function() {
+        $('.mmg-expand.expand').removeClass('expand');
+        marker.expand();
         dispatch.trigger(marker.model.cid + ':table:html');
       });
     } else {
+      $('.mmg-expand.expand').removeClass('expand');
+      this.expand();
       dispatch.trigger(this.model.cid + ':table:html');
     }
   },
@@ -56,24 +62,21 @@ var CorporationMarker = Backbone.View.extend({
   },
 
   toggle: function() {
-    if (!this.$el.hasClass('expand')) {
-      this.expand();
-    } else {
+    if (this.$el.hasClass('expand')) {
       this.collapse();
+    } else {
+      this.expand();
     }
   },
 
   expand: function() {
-    this.$el.addClass('expand').css({'z-index': 9999, 'max-height': 28 + this.$el.find('p').innerHeight()})
-      .animate({'max-width': '328px'});
-    dispatch.trigger(this.model.cid + ':marker:expand');
+    if (!this.$el.hasClass('expand'))
+      this.$el.addClass('expand');
   },
 
   collapse: function() {
-    this.$el.animate({'max-width': '28px', 'z-index': 0}, function() {
-      $(this).removeClass('expand');
-    });
-    dispatch.trigger(this.model.cid + 'marker:collapse');
+    if (this.$el.hasClass('expand'))
+      this.$el.removeClass('expand');
   },
 
   show: function() {

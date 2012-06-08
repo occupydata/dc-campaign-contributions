@@ -62,18 +62,30 @@ $(window).load(function() {
 
   corporations.each(function(corporation, index) {
     var corporationMax = 0;
+    var campaignMax;
 
     _.each(corporation.get('contributions').groupBy(function(contribution, index) {
       return contribution.get('properties').campaign;
-    }), function(campaignContributions) {
+    }), function(campaignContributions, campaign) {
       var length = campaignContributions.length;
 
-      if(length > corporationMax) { corporationMax = length };
-      if(length > max) { max = length };
+      if(length > corporationMax) { corporationMax = length; campaignMax = campaign; };
+      if(length > max) { max = length; };
     });
 
-    corporation.set('max', corporationMax);
-    corporation.set('table', corporation.get('table').render().el);
+    corporation.set({
+      'max': corporationMax,
+      'campaign':campaignMax,
+      'table': corporation.get('table').render().el
+    });
+  });
+
+  // Init legend
+  var i = 0;
+  $('#legend').find('.quantile').each(function() {
+    var range = Math.ceil((max / 5) * i) + ' - ' + Math.ceil((max / 5) * (i + 1));
+    $(this).find('p').html(range);
+    i++;
   });
 
   // Set corporation quantiles

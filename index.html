@@ -25,27 +25,49 @@
 
     <div class="container">
       <div id="map"></div>
-      <div class="border left"></div>
-      <div class="border right"></div>
+      <div id="legend">
+        <h3>Maximum Contributions to a Single Campaign</h3>
+        <div class="key clearfix">
+          <div class="quantile">
+            <div class="mmg-marker one"></div>
+            <p></p>
+          </div>
+          <div class="quantile">
+            <div class="mmg-marker two"></div>
+            <p></p>
+          </div>
+          <div class="quantile">
+            <div class="mmg-marker three"></div>
+            <p></p>
+          </div>
+          <div class="quantile">
+            <div class="mmg-marker four"></div>
+            <p></p>
+          </div>
+          <div class="quantile">
+            <div class="mmg-marker five"></div>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <div id="filter" class="clearfix">
+        <select id="campaign">
+          <option value="all">Campaign</option>
+        </select>
+        <select id="ward">
+          <option value="all">Campaign Ward</option>
+        </select>
+        <select id="year">
+          <option value="all">Election Year</option>
+        </select>
+      </div>
     </div>
+
+    <div id="contributions" class="layout"></div>
 
     <div id="infographic">
       <div class="layout clearfix">
-        <div class="filter clearfix">
-          <h2>DC Campaign Contributions</h2>
-          <select id="year">
-            <option value="all">Election Year</option>
-          </select>
-          <select id="ward">
-            <option value="all">Ward</option>
-          </select>
-          <select id="campaign">
-            <option value="all">Campaign</option>
-          </select>
-        </div>
-
-        <div id="contributions" class="layout">
-        </div>
+        <h2>DC Campaign Contributions</h2>
 
         <div class="description">
           <p>What's the big deal? Corporate influence on the local level in DC.</p>
@@ -55,16 +77,14 @@
         <div id="LineChartID165c378c0b660" class="chart">
         </div>
 
-        <div id="BarChartID165c317a1c751" class="chart">
-        </div>
-
         <div id="BarChartID165c33405968f" class="chart">
         </div>
 
         <div id="BarChartID165c3473158db" class="chart">
         </div>
 
-        <ul id="corporations"></ul>
+        <div id="BarChartID165c317a1c751" class="chart">
+        </div>
       </div>
     </div>
 
