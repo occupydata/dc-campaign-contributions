@@ -86,7 +86,7 @@ $(window).load(function() {
   var i = 0;
   $('#legend').find('.quantile').each(function() {
     var quantileMin = (i == 0 ? 2 : Math.ceil((max / 5) * i));
-    var quantileMax = Math.ceil((max / 5) * (i + 1));
+    var quantileMax = Math.floor((max / 5) * (i + 1));
 
     $(this).find('p').html(quantileMin + ' - ' + quantileMax);
     i++;
