@@ -13,20 +13,17 @@
 
     <header>
       <div class="layout clearfix">
-        <h3>Puppet Corporations Circumventing Contribution Limits</h3>
-        <!--
+        <p>Click on each marker to view the full list of corporate campaign contributions bundled from that address.</p>
         <div class="social clearfix">
           <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>        
           <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        </div>
-        -->
       </div>
     </header>
 
     <div class="container">
       <div id="map"></div>
       <div id="legend">
-        <h3>Maximum Contributions to a Single Campaign</h3>
+        <h4>Maximum Contributions to a Single Campaign</h4>
         <div class="key clearfix">
           <div class="quantile">
             <div class="mmg-marker one"></div>
@@ -51,8 +48,8 @@
         </div>
       </div>
       <div id="filter" class="clearfix">
-        <select id="campaign">
-          <option value="all">Campaign</option>
+        <select id="candidate">
+          <option value="all">Candidate</option>
         </select>
         <select id="ward">
           <option value="all">Campaign Ward</option>
@@ -67,24 +64,91 @@
 
     <div id="infographic">
       <div class="layout clearfix">
-        <h2>DC Campaign Contributions</h2>
+        <h1>How are corporations influencing D.C. politics?</h1>
 
-        <div class="description">
-          <p>What's the big deal? Corporate influence on the local level in DC.</p>
-          <p>The thing that's the most eye catching is the issue with puppet corporations where a person or a group of people who all control multiple corporations use them to donate the maximum through all those corps. Thats the most egregious aspect. It was difficult to detect this in the past. That was the main point. Its useful in general to have a cleaned up data set. Getting the data into consistent format. We saw things spelled several different ways.  It's an old tactic but hard to detect. It's a useful tool for citizens and journalists.</p>
-        </div>
+        <p>While <a href="http://www.fec.gov/pages/brochures/fecfeca.shtml#anchor257909">federal election law</a> prohibits corporations (as well as labor unions, federal government contractors and foreign nationals) from contributing directly to national political campaigns, <a href="http://www.dcregs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191">D.C. campaign finance law</a> permits direct corporate contributions to local political campaigns.</p>
 
-        <div id="LineChartID165c378c0b660" class="chart">
-        </div>
+        <blockquote><p>3011.12 Corporations may make contributions in the District of Columbia.</p>
 
-        <div id="BarChartID165c33405968f" class="chart">
-        </div>
+        <p>3011.13 A corporation, its subsidiaries, and each political committee established financed, maintained or controlled by the corporation and its subsidiaries share a single contribution limitation.</p>
 
-        <div id="BarChartID165c3473158db" class="chart">
-        </div>
+        <p>3011.14 A corporation is deemed to be a separate entity; provided, that a corporation (corporation B) which is established, financed, maintained or controlled (51% or more) by another corporation (corporation A) is considered, for the purposes of the contribution limitations, a subsidiary of the other corporation (corporation A).</p>
 
-        <div id="BarChartID165c317a1c751" class="chart">
-        </div>
+        <p>3011.18 Limitations on contributions, under § 3011, apply to a limited liability company depending on whether it is established as a corporation or partnership.</p>
+
+        <p><cite><a href="http://www.dcregs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191">57 D.C. Reg. 2229, 2241 (March 19, 2010)</a></cite></p></blockquote>
+
+        <h3>But campaign contributions are limited, right?</h3>
+
+        <blockquote><p>3011.2 Contributions in support of either individual candidates or their authorized committees, or for the recall of an incumbent, under § 3000.6, shall be limited to the following:</p>
+
+        <ol type="a">
+        <li><p>Mayor, U.S. Senator and Representative to Congress - two thousand dollars ($2,000);</p></li>
+        <li><p>Chairman of the Council - one thousand five hundred dollars ($1,500);</p></li>
+        <li><p>Member of the Council at-large - one thousand dollars ($1,000);</p></li>
+        <li><p>Member of the Council elected from a ward and Member of the State Board of Education at-large &ndash; five hundred dollars ($500);</p></li>
+        <li><p>Member of the State Board of Education elected from a ward – two hundred dollars ($200);</p></li>
+        <li><p>Official of a Political party – two hundred dollars ($200); and</p></li>
+        <li><p>Member of an Advisory Neighborhood Commission &ndash; twenty-five dollars ($25).</p></li>
+        </ol>
+
+
+        <p><cite><a href="http://www.dcregs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191">57 D.C. Reg. 2229, 2241 (March 19, 2010)</a></cite></p></blockquote>
+
+        <h3>So how do corporations circumvent these limits?</h3>
+
+        <p><strong>Individuals or groups of people who control multiple corporations can use each corporation to donate the maximum amount.</strong></p>
+
+        <p>These corporations could be shell companies set up for this exclusive purpose. They could also be non-subsidiary businesses owned and operated by the same individuals. This second scenario is commonly seen amongst real estate developers, where individual development projects are frequently established as distinct corporations.</p>
+
+        <p>Business names and addresses were spelled several different ways in the campaign contributions database. It&rsquo;s an old tactic, but does make bundling harder to detect.</p>
+
+        <p>This problem is not just a minor concern - contributions from puppet corporations have accounted for 20.9% of all corporate contributions in the 2008 election cycle and 19.8% in 2012.</p>
+
+        <div id="LineChartID165c378c0b660" class="chart"></div>
+
+
+        <h3>How much money are corporations contributing?</h3>
+
+        <p>While individual contributions are still dominant, corporations are donating millions of dollars directly to the coffers of their preferred candidates. What about labor union money? It&rsquo;s a pittance compared to how much corporations are donating.</p>
+
+        <div id="BarChartID165c317a1c751" class="chart"></div>
+
+
+        <h3>Where is this money being spent?</h3>
+
+        <p>Corporations are overwhelmingly contributing to races outside of their ward and in some cases are contributing from outside the District of Columbia.</p>
+
+        <div id="BarChartID582436ca55d9" class="chart"></div>
+
+
+        <h3>What can I do to stop this abuse?</h3>
+
+        <p><a href="http://dcpublictrust.org/wordpress1/volunteer/">Volunteer</a> with <a href="http://dcpublictrust.org/wordpress1/">D.C. Public Trust</a> to collect signatures for a ballot initiative to ban corporations from making direct contributions to political campaigns and help curb &ldquo;pay-to-play&rdquo; in D.C. politics.</p>
+
+        <p><a href="http://dcpublictrust.org/wordpress1/about/faq/">Read more about the ballot initiative</a> and if you see a volunteer collecting signatures, please sign the petition! This petition can not be signed online.</p>
+
+        <h3>How did you gather this data?</h3>
+
+        <p>Local campaign contribution data for the District of Columbia includes information on the name and address of the contributor, the date of contribution, the amount and the recipient of the contribution. This data was cleaned and geocoded, then merged with several other databases to reveal which corporations were bundling contributions.</p>
+
+        <ol>
+        <li><p>Local campaign contribution data was obtained from the <a href="http://www.ocf.dc.gov/serv/index.shtm">D.C. Office of Campaign Finance</a> through their data download feature.</p></li>
+        <li><p>The <a href="http://octo.dc.gov/DC/OCTO/Maps+and+Apps/Online+Mapping/All+Online+Maps/Master+Address+Repository">Master Address Repository Batch Geocoder</a> of the D.C. Office of the Chief Technology Officer was used to process D.C. addresses since it can understand abbreviations particular to D.C. such as &ldquo;501 Penn Ave NW&rdquo;.</p></li>
+        <li><p>The <a href="http://webgis.usc.edu/Default.aspx">University of Southern California WebGIS service</a> was used for addresses outside of D.C. (and any D.C. addresses that could not be processed using the MAR Batch Geocoder) since it returns the fully parsed address and an indication of the precision of the geocode in addition the latitude and longitude.</p></li>
+        <li><p>The <a href="http://ocf.dc.gov/registration_statements/index.asp">Principal Campaign Committees Registrant database</a> of the Office of Campaign Finance was used to obtain more information about campaign committees, especially the type of office being sought.</p></li>
+        <li><p>The <a href="http://otr.cfo.dc.gov/otr/cwp/view,a,1330,q,594380.asp">Computer Assisted Mass Appraisal Database</a> from the D.C. Office of Tax and Revenue was used to help determine whether a given address had multiple suites.</p></li>
+        <li><p>The <a href="https://corp.dcra.dc.gov/Home.aspx">D.C. Department of Consumer and Regulatory Affairs</a> maintains a database of business entites registered in D.C., which was used to detect linkages between suspected puppet corporations.</p></li>
+        </ol>
+
+
+        <p>The registered agent of a business is not necessarily an owner of the business, but is a designated person or entity. Thus, the registered agent is often a lawyer or a registered agent service company. Even if the registered agent is not an owner, however, companies owned by the same person(s) are likely to have the same registered agent, therefore this information can be useful in detecting puppet corporations.</p>
+
+        <p>Campaign committee registration data from the Office of Campaign Finance was not available for committees that were formed for election cycles before 2002. Therefore, the necessary information about the office sought by the candidate was not available to detect puppet corporations for election cycles before 2002.</p>
+
+        <p>Puppet corporations that are owned by the same person or group of people but are not located at the same business address could not be detected by our methodology.</p>
+
+        <p>View our source code, scrapers and parsing scripts on <a href="https://github.com/occupydata/dc-campaign-finance">GitHub</a>. A complete <a href="https://commondatastorage.googleapis.com/ckannet-storage/2012-05-29T122112/Data_Dictionary_for_Washington_DC_Local_Campaign_Contributions.pdf">data dictionary</a> documenting our processes, plus cleaned and merged data sets (including a curated version for journalists, with only relevant columns included), are availabe at <a href="http://thedatahub.org/dataset/washington-dc-local-campaign-contributions">The Data Hub</a>.</p>
       </div>
     </div>
 
@@ -111,7 +175,7 @@
     <script src="vendor/wax/dist/wax.mm.min.js"></script>
 
     <!-- Data -->
-    <script src="data/contrib.js"></script>
+    <script src="js/contrib.js"></script>
 
     <!-- TODO: Modularize these using require.js -->
     <script src="js/models/contribution.js"></script>
@@ -127,7 +191,6 @@
     <script src="js/charts.js"></script>
 
     <!-- Facebook -->
-    <!--
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -136,11 +199,9 @@
       js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    -->
 
     <!-- Twitter -->
-    <!--
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    -->
   </body>
 </html>
+

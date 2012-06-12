@@ -136,141 +136,55 @@ displayChartBarChartID165c317a1c751()
 
 
 
-function gvisDataBarChartID165c33405968f ()
-{
-  var data = new google.visualization.DataTable();
-  var datajson =
-[
- [
- "Stanley Martin Commercial, Inc.",
-      41765 
-],
-[
- "Dynamic Concepts, Inc.",
-      36450 
-],
-[
- "Lottery Technology Enterprises",
-      34550 
-],
-[
- "Fort Myer Construction Corporation",
-      31500 
-],
-[
- "DC Healthcare Systems, Inc.",
-      30500 
-],
-[
- "Manatt, Phelps & Phillips, LLP",
-      25400 
-],
-[
- "The Temple Group, Inc.",
-      25000 
-],
-[
- "The John Akridge Company",
-      24600 
-],
-[
- "Forney Enterprises, Inc.",
-      24400 
-],
-[
- "Borger Management, Inc.",
-      23500 
-] 
-];
-data.addColumn('string','corp');
-data.addColumn('number','Total Contributions');
-data.addRows(datajson);
-var formatter = new google.visualization.NumberFormat({prefix: '$', groupingSymbol:',',fractionDigits:0});
-formatter.format(data,1);
-return(data);
-}
- 
-// jsDrawChart
-function drawChartBarChartID165c33405968f() {
-  var data = gvisDataBarChartID165c33405968f();
-  var options = {};
-options["allowHtml"] = true;
-options["hAxis"] = {format:'$###,###,###', minValue:0};
-options["legend"] = "none";
-options["vAxis"] = {textStyle: {fontSize: 10}};
-options["title"] = "Top Ten Corporate Contributors, 2002-2012 Elections";
-
-     var chart = new google.visualization.BarChart(
-       document.getElementById('BarChartID165c33405968f')
-     );
-     chart.draw(data,options);
-    
-
-}
-  
- 
-// jsDisplayChart 
-function displayChartBarChartID165c33405968f()
-{
-  google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartBarChartID165c33405968f);
-}
- 
-// jsChart 
-displayChartBarChartID165c33405968f()
-
-
-
-
-function gvisDataBarChartID165c3473158db ()
+function gvisDataBarChartID582436ca55d9 ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
 [
  [
  "Ward 1",
-      23400,
-  607066.23 
+    58800.1,
+  322780.49 
 ],
 [
  "Ward 2",
-   93097.95,
-   217702.9 
+  182212.51,
+   244050.4 
 ],
 [
  "Ward 3",
-      20575,
-  513976.76 
+      17365,
+  125173.09 
 ],
 [
  "Ward 4",
-   47276.99,
-  984149.44 
+   63194.99,
+  504823.34 
 ],
 [
  "Ward 5",
-     105949,
- 1427511.36 
+   61830.99,
+     216483 
 ],
 [
  "Ward 6",
-   35172.99,
-  456769.14 
+   42347.26,
+     127005 
 ],
 [
  "Ward 7",
-       8000,
- 1070518.73 
+   18178.94,
+  393949.89 
 ],
 [
  "Ward 8",
-      32150,
-  791072.57 
+      53883,
+   255281.8 
 ],
 [
  "Citywide",
- 3006159.79,
- 2092399.56 
+ 5207649.33,
+ 3637939.28 
 ] 
 ];
 data.addColumn('string','ward');
@@ -284,8 +198,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartBarChartID165c3473158db() {
-  var data = gvisDataBarChartID165c3473158db();
+function drawChartBarChartID582436ca55d9() {
+  var data = gvisDataBarChartID582436ca55d9();
   var options = {};
 options["allowHtml"] = true;
 options["focusTarget"] = "category";
@@ -295,7 +209,7 @@ options["title"] = "Contribution from Corporations Based Inside or Outside of Ca
 options["vAxis"] = {title: 'Type of Race'};
 
      var chart = new google.visualization.BarChart(
-       document.getElementById('BarChartID165c3473158db')
+       document.getElementById('BarChartID582436ca55d9')
      );
      chart.draw(data,options);
     
@@ -304,14 +218,14 @@ options["vAxis"] = {title: 'Type of Race'};
   
  
 // jsDisplayChart 
-function displayChartBarChartID165c3473158db()
+function displayChartBarChartID582436ca55d9()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartBarChartID165c3473158db);
+  google.setOnLoadCallback(drawChartBarChartID582436ca55d9);
 }
  
 // jsChart 
-displayChartBarChartID165c3473158db()
+displayChartBarChartID582436ca55d9()
 
 
 

@@ -12,7 +12,7 @@ $(window).load(function() {
   // Init select arrays
   var years = [];
   var wards = [];
-  var campaigns = [];
+  var candidates = [];
   
   // Define GeoJSON data layer
   var geojsonlayer = mmg().factory(function(x) {
@@ -26,9 +26,9 @@ $(window).load(function() {
     if(_.indexOf(wards, ward) < 0 && ward != undefined)
       wards.push(ward);
 
-    var campaign = contribution.get('properties').campaign;
-    if(_.indexOf(campaigns, campaign) < 0 && campaign != undefined)
-      campaigns.push(campaign);
+    var candidate = contribution.get('properties').candidate;
+    if(_.indexOf(candidates, candidate) < 0 && candidate != undefined)
+      candidates.push(candidate);
 
     var address = contribution.get('properties').address;
     var index = _.indexOf(corporations.pluck('address'), address);
@@ -47,6 +47,9 @@ $(window).load(function() {
 
         corporations.add(corporation);
 
+        collection = corporation.get('contributions');
+        collection.add(contribution);
+
         return corporation.get('marker').render().el; 
       } catch(err) {}
     } else {
@@ -57,25 +60,24 @@ $(window).load(function() {
     }
   }).features(contrib.features);
 
-  // Determine maximum campaign contributions per corporation
+  // Determine maximum committee contributions per corporation
   var max = 0;
 
   corporations.each(function(corporation, index) {
     var corporationMax = 0;
-    var campaignMax;
+    var committeeMax;
 
     _.each(corporation.get('contributions').groupBy(function(contribution, index) {
-      return contribution.get('properties').campaign;
-    }), function(campaignContributions, campaign) {
-      var length = campaignContributions.length;
+      return contribution.get('properties').committee;
+    }), function(committeeContributions, committee) {
+      var length = committeeContributions.length;
 
-      if(length > corporationMax) { corporationMax = length; campaignMax = campaign; };
+      if(length > corporationMax) { corporationMax = length; };
       if(length > max) { max = length; };
     });
 
     corporation.set({
       'max': corporationMax,
-      'campaign':campaignMax,
       'table': corporation.get('table').render().el
     });
   });
@@ -83,8 +85,10 @@ $(window).load(function() {
   // Init legend
   var i = 0;
   $('#legend').find('.quantile').each(function() {
-    var range = Math.ceil((max / 5) * i) + ' - ' + Math.ceil((max / 5) * (i + 1));
-    $(this).find('p').html(range);
+    var quantileMin = (i == 0 ? 2 : Math.ceil((max / 5) * i));
+    var quantileMax = Math.ceil((max / 5) * (i + 1));
+
+    $(this).find('p').html(quantileMin + ' - ' + quantileMax);
     i++;
   });
 
@@ -152,10 +156,13 @@ $(window).load(function() {
   });
 
   $(document).ready(function() {
-    $('#year, #ward, #campaign').change(function() {
+    $('#year, #ward, #candidate').change(function() {
+      $('.mmg-expand.expand').removeClass('expand');
+      $('#contributions').html('');
+
       var year = $('#year').find('option:selected').attr('value');
       var ward = $('#ward').find('option:selected').attr('value');
-      var campaign = $('#campaign').find('option:selected').attr('value');
+      var candidate = $('#candidate').find('option:selected').attr('value');
 
       corporations.each(function(corporation, index) {
         var cid = corporation.cid;
@@ -164,7 +171,7 @@ $(window).load(function() {
         corporation.get('contributions').each(function(contribution, index) {
           if(contribution.get('properties').year == year || year == 'all')
             if(contribution.get('properties').ward == ward || ward == 'all')
-              if(contribution.get('properties').campaign == campaign || campaign == 'all')
+              if(contribution.get('properties').candidate == candidate || candidate == 'all')
                 dispatch.trigger(cid + ':marker:show');
         });
       });
@@ -183,10 +190,10 @@ $(window).load(function() {
       ward.options[ward.options.length] = new Option(value, value);
     }
 
-    var campaign = document.getElementById('campaign');
-    for(index in campaigns.sort()) {
-      var value = campaigns[index];
-      campaign.options[campaign.options.length] = new Option(value, value);
+    var candidate = document.getElementById('candidate');
+    for(index in candidates.sort()) {
+      var value = candidates[index];
+      candidate.options[candidate.options.length] = new Option(value, value);
     }
   });
 });

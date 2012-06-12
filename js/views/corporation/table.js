@@ -13,12 +13,13 @@ CorporationTable = Backbone.View.extend({
   
   render: function() {
     $(document.createElement('tr'))
-      .append($(document.createElement('th')).html('Contributor Name'))
+      .append($(document.createElement('th')).html('Contributor'))
       .append($(document.createElement('th')).html('Address'))
-      .append($(document.createElement('th')).html('DCRA Agent'))
+      .append($(document.createElement('th')).html('Registered Agent'))
       .append($(document.createElement('th')).html('Amount'))
       .append($(document.createElement('th')).html('Date'))
-      .append($(document.createElement('th')).html('Campaign'))
+      .append($(document.createElement('th')).html('Candidate'))
+      .append($(document.createElement('th')).html('Committee'))
       .append($(document.createElement('th')).html('Ward'))
       .append($(document.createElement('th')).html('Year'))
       .appendTo(this.el);

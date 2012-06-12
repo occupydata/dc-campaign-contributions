@@ -8,10 +8,10 @@ function program1(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n  <td>";
-  foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  foundHelper = helpers.contributor;
+  stack1 = foundHelper || depth0.contributor;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "contributor", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</td>\n  <td>";
   foundHelper = helpers.address;
   stack1 = foundHelper || depth0.address;
@@ -33,10 +33,15 @@ function program1(depth0,data) {
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "dateString", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</td>\n  <td>";
-  foundHelper = helpers.campaign;
-  stack1 = foundHelper || depth0.campaign;
+  foundHelper = helpers.candidate;
+  stack1 = foundHelper || depth0.candidate;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "campaign", { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "candidate", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</td>\n  <td>";
+  foundHelper = helpers.committee;
+  stack1 = foundHelper || depth0.committee;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "committee", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</td>\n  <td>";
   foundHelper = helpers.ward;
   stack1 = foundHelper || depth0.ward;
