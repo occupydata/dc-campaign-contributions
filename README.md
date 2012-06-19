@@ -1,7 +1,7 @@
 # How are corporations influencing D.C. politics?
 
 While [federal election law](http://www.fec.gov/pages/brochures/fecfeca.shtml#anchor257909) prohibits corporations (as well as labor unions, federal government contractors and foreign nationals) from contributing directly to national political campaigns, [D.C. campaign finance law](http://www.dcregs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191) permits direct corporate contributions to local political campaigns.
-```
+
 >3011.12 Corporations may make contributions in the District of Columbia.>3011.13 A corporation, its subsidiaries, and each political committee established financed, maintained or controlled by the corporation and its subsidiaries share a single contribution limitation.>3011.14 A corporation is deemed to be a separate entity; provided, that a corporation (corporation B) which is established, financed, maintained or controlled (51% or more) by another corporation (corporation A) is considered, for the purposes of the contribution limitations, a subsidiary of the other corporation (corporation A).>3011.18 Limitations on contributions, under § 3011, apply to a limited liability company depending on whether it is established as a corporation or partnership.
 ><cite>[57 D.C. Reg. 2229, 2241 (March 19, 2010)](http://www.dcegs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191)</cite>
 
