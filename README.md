@@ -58,10 +58,20 @@ Local campaign contribution data for the District of Columbia includes informati
 
 6. The [D.C. Department of Consumer and Regulatory Affairs](https://corp.dcra.dc.gov/Home.aspx) maintains a database of business entites registered in D.C., which was used to detect linkages between suspected puppet corporations.
 
+The methodology for identifying puppet corporations is based on the criteria offered in this news article: [http://wamu.org/news/morning_edition/11/12/16/bundling_is_common_practice_for_dc_council_campaign_contributions](). Puppet corporations that are owned by the same person or group of people but are not located at the same business address could not be detected by this methodology.
+
+* The corporations must be registered at the same address, including suite number if provided.
+
+* The corporations must have contributed the maximum amount allowable under law to the same campaign, which differs depending on the electoral office.
+
+* The corporations must have contributed to the campaign within seven days of each other. (This shows some coordination, and in fact most bundling happens on the same day. 7 days is an arbitrary number of days.)
+
+* If the contributions from the suspected puppet corporations all came from the same suite number in an office building or came from an address that does not have multiple suites, then they are labeled as suspected puppet corporations. If the contributions came from an address that has multiple suites, but no suite number is listed in the contribution record, then the registered agent of each suspected puppet corporation must match with the registered agent of at least one other suspected puppet corporation at that address.
+
 The registered agent of a business is not necessarily an owner of the business, but is a designated person or entity. Thus, the registered agent is often a lawyer or a registered agent service company. Even if the registered agent is not an owner, however, companies owned by the same person(s) are likely to have the same registered agent, therefore this information can be useful in detecting puppet corporations.
 
 Campaign committee registration data from the Office of Campaign Finance was not available for committees that were formed for election cycles before 2002. Therefore, the necessary information about the office sought by the candidate was not available to detect puppet corporations for election cycles before 2002.
 
-Puppet corporations that are owned by the same person or group of people but are not located at the same business address could not be detected by our methodology.
+### Learn More
 
 View our source code, scrapers and parsing scripts on [GitHub](https://github.com/occupydata/dc-campaign-finance). A complete [data dictionary](https://commondatastorage.googleapis.com/ckannet-storage/2012-05-29T122112/Data_Dictionary_for_Washington_DC_Local_Campaign_Contributions.pdf) documenting our processes, plus cleaned and merged data sets (including a curated version for journalists, with only relevant columns included) are availabe at [The Data Hub](http://thedatahub.org/dataset/washington-dc-local-campaign-contributions).

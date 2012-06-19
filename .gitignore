@@ -2,4 +2,4 @@
 *.swp
 .Rhistory
 _site/
-r/
+data/

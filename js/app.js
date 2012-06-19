@@ -77,8 +77,7 @@ $(window).load(function() {
     });
 
     corporation.set({
-      'max': corporationMax,
-      'table': corporation.get('table').render().el
+      'max': corporationMax
     });
   });
 
