@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DC Campaign Contributions</title>
+    <meta name="viewport" content="width=640, maximum-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/wax/theme/controls.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+    <header>
+      <div class="layout clearfix">
+        <p>Click each marker to view campaign contributions from corporations at that address.</p>
+        <div class="social clearfix">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>        
+          <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        </div>
+      </div>
+    </header>
+
+    {{ content }}
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="vendor/underscore/underscore-min.js"></script>
+    <script src="vendor/backbone/backbone-min.js"></script>
+
+    <!-- Google Charts API -->
+    <script src="http://www.google.com/jsapi"></script>
+
+    <!-- Handlebars -->
+    <script src="vendor/handlebars/dist/handlebars.runtime.js"></script>
+    <script src="templates/contribution/tablerow.js"></script>
+    <script src="templates/corporation/marker.js"></script>
+
+    <!-- Polyfills -->
+    <script src="vendor/js-iso8601/iso8601.min.js"></script>
+
+    <!-- MapBox Libraries -->
+    <script src="vendor/modestmaps-js/modestmaps.min.js"></script>
+    <script src="vendor/easey/src/easey.js"></script>
+    <script src="vendor/easey/src/easey.handlers.js"></script>
+    <script src="vendor/mmg/src/mmg.js"></script>
+    <script src="vendor/wax/dist/wax.mm.min.js"></script>
+
+    <!-- Data -->
+    <script src="js/contrib.js"></script>
+
+    <!-- TODO: Modularize these using require.js -->
+    <script src="js/models/contribution.js"></script>
+    <script src="js/collections/contribution.js"></script>
+    <script src="js/views/contribution/tablerow.js"></script>
+
+    <script src="js/models/corporation.js"></script>
+    <script src="js/collections/corporation.js"></script>
+    <script src="js/views/corporation/table.js"></script>
+    <script src="js/views/corporation/marker.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Twitter -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </body>
+</html>
