@@ -22,9 +22,9 @@
 [submodule "vendor/csv2geojson"]
 	path = vendor/csv2geojson
 	url = git://github.com/mikemorris/csv2geojson.git
-[submodule "vendor/mmg"]
-	path = vendor/mmg
-	url = git://github.com/mapbox/mmg.git
 [submodule "vendor/handlebars"]
 	path = vendor/handlebars
 	url = git://github.com/mikemorris/handlebars.js.git
+[submodule "vendor/markers"]
+	path = vendor/markers
+	url = git://github.com/mapbox/markers.js.git

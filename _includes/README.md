@@ -12,6 +12,9 @@ While [federal election law](http://www.fec.gov/pages/brochures/fecfeca.shtml#an
 > 
 > <cite>Source: <a href="http://www.dcregs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191">57 D.C. Reg. 2229, 2241 (March 19, 2010)</a></cite>
 
+<div class="spacer">
+</div>
+
 ## But campaign contributions are limited, right?
 
 > **3011\.2** Contributions in support of either individual candidates or their authorized committees, or for the recall of an incumbent, under § 3000.6, shall be limited to the following:
@@ -32,6 +35,8 @@ While [federal election law](http://www.fec.gov/pages/brochures/fecfeca.shtml#an
 > 
 > <cite>Source: <a href="http://www.dcregs.org/Gateway/FinalAdoptionHome.aspx?RuleVersionID=3525191">57 D.C. Reg. 2229, 2241 (March 19, 2010)</a></cite>
 
+<div class="spacer">
+</div>
 
 ## So how do corporations circumvent these limits?
 
@@ -66,6 +71,9 @@ Corporations are overwhelmingly contributing to races outside of their ward and 
 
 [Read more about the ballot initiative](http://dcpublictrust.org/wordpress1/about/faq/) and if you see a volunteer collecting signatures, please sign the petition! This petition can not be signed online.
 
+<div class="spacer">
+</div>
+
 ## How did you gather this data?
 
 Local campaign contribution data for the District of Columbia includes information on the name and address of the contributor, the date of contribution, the amount and the recipient of the contribution. This data was cleaned and geocoded, then merged with several other databases to reveal which corporations were bundling contributions.
@@ -99,15 +107,25 @@ The methodology for identifying puppet corporations is based on the criteria off
 
 - *Campaign committee registration data from the Office of Campaign Finance was not available for committees that were formed for election cycles before 2002. Therefore, the necessary information about the office sought by the candidate was not available to detect puppet corporations for election cycles before 2002.*
 
+<div class="spacer">
+</div>
+
 ## Learn More
 
 View our source code, scrapers and parsing scripts on [GitHub](https://github.com/occupydata/dc-campaign-contributions). A complete [data dictionary](https://commondatastorage.googleapis.com/ckannet-storage/2012-05-29T122112/Data_Dictionary_for_Washington_DC_Local_Campaign_Contributions.pdf) documenting our processes, plus cleaned and merged data sets (including a curated version for journalists, with only relevant columns included) are availabe at [The Data Hub](http://thedatahub.org/dataset/washington-dc-local-campaign-contributions).
 
-## What is [Occupy Data](http://occupydata.org)?
+<div class="spacer">
+</div>
 
- Occupy Data strengthens initiatives of the Occupy Wall Street movement through data gathering, analysis, and visualization. We are developing projects to address overarching grievances such as economic inequality, identity-based discrimination and (in)equality of opportunity, corruption, lobbying, campaign finance, militarization, the financial crisis, the criminal (in)justice system, mortgages and foreclosures, and related themes.
-<ul class="actions"><li class="choice"><a class="button" href="http://occupy-data.org">Learn More</a></li>
-<li><a class="button" href="http://twitter.com/occupy_data">Follow @Occupy_Data</a></li>
-<li><a class="button" href="https://www.wepay.com/donations/26406">Support Occupy Data</a></li></ul>
+## Who is [Occupy Data](http://occupydata.org)?
 
+Occupy Data strengthens initiatives of the Occupy Wall Street movement through data gathering, analysis, and visualization. We are developing projects to address overarching grievances such as economic inequality, identity-based discrimination and (in)equality of opportunity, corruption, lobbying, campaign finance, militarization, the financial crisis, the criminal (in)justice system, mortgages and foreclosures, and related themes.
 
+<div class="spacer">
+</div>
+
+<ul class="actions">
+  <li><a class="button" href="http://occupy-data.org">Get Involved</a></li>
+  <li><a class="button" href="http://twitter.com/occupy_data">Follow @Occupy_Data</a></li>
+  <li><a class="button" href="https://www.wepay.com/donations/26406">Support Occupy Data</a></li>
+</ul>
