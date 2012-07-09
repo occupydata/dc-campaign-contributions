@@ -5,6 +5,7 @@ body {overflow-x: auto; overflow-y: scroll;}
 .clearfix:after {clear: both; content: "."; display: block; font-size: 0; visibility: hidden;}
 .layout {max-width: 640px; margin: 0 auto; padding: 0 80px; min-height: 0px}
 .hidden {display: none;}
+.spacer {height: 1em;}
 
 h1, h2, h3, h4 {
   margin-bottom: 0.5em;
@@ -44,13 +45,14 @@ p {
 
 strong {
   color: #BD0026;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 700;
 }
 
-.spacer {
-  height: 1em;
+ul {
+  margin: 1em 2em;
+  list-style-type: disc;
 }
 
 blockquote {
@@ -60,46 +62,13 @@ blockquote {
   color: #444;
   border-radius: 0.3em;
   background-color: #eee;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-style: italic;
 }
 
-blockquote p,
-blockquote ul,
-blockquote ul li,
-blockquote ul li p {
-  width: 100%;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 5px;
-  padding-right: 5px;
-  display: block;
-}
-
-blockquote ul li {
-  margin-left: 10px;
-  padding-left: 0px;
-  width: 95%;
-	
-}
-blockquote ul li strong,
-blockquote ul li p strong {
-  margin-left: 0%;
-}
-
-ul {
-  margin: 1em 2em;
-  list-style-type: disc;
-  list-style-position: outside;
-}
-
-ul li {
-  display: list-item;
-}
-
-ul[type=a] {
-  list-style-type: lower-alpha;
+blockquote ul {
+  margin: 1em;
+  list-style-type: none;
 }
 
 .banner {
@@ -144,7 +113,7 @@ header p {
 header h4 {
   margin-bottom: 0;
 	float: left;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-style: italic;
 	font-size: 14px;
   line-height: 20px;
@@ -245,7 +214,7 @@ header h4 {
   border-right: 1px solid #222;
   background-color: #222;
   color: #eee;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   line-height: 1.5em;
   text-align: center;
   white-space: nowrap;
