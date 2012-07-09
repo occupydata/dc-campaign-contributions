@@ -93,6 +93,7 @@ header {
 
 header .layout {
   max-width: 800px;
+  padding: 0;
 }
 
 header p {
