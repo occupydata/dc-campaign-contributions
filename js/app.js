@@ -4,7 +4,7 @@ var m, ea;
 var dispatch = _.extend({}, Backbone.Events);
 
 $(window).load(function() {
-  var url = 'http://api.tiles.mapbox.com/v3/mapbox.mapbox-light.jsonp';
+  var url = 'http://a.tiles.mapbox.com/v3/occupy.map-nwufiify.jsonp';
 
   // Init Backbone collection
   var corporations = new CorporationCollection();
